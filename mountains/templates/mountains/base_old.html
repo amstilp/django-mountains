@@ -1,0 +1,29 @@
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>Mountains</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/mountains.css' %}">
+    </head>
+    <body>
+        <div class="page-header">
+            <a href="{% url 'mountain_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span>Add a new mountain!</a>
+            <a href="{% url 'mountain_range_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span>Add a new mountain range!</a>
+            <h1><a href="/">Adrienne's list of mountains!</a></h1>
+
+        <a href="/mountain/advanced_search"><span class="glyphicon glyphicon-search"</span></a>
+
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

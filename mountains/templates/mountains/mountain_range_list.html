@@ -1,0 +1,12 @@
+{% extends 'mountains/base.html' %}
+
+{% block content %}
+	{% for mountain_range in mountain_ranges %}
+		<div>
+        	<h2><a href="{% url 'mountain_range_detail' pk=mountain_range.pk %}">{{ mountain_range.name }}</a></h2>
+        </div>
+    {% endfor %}
+
+    <hr>
+    <a href="{% url 'mountain_list' %}">All mountains</a>
+{% endblock %}

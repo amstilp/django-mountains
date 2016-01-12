@@ -1,0 +1,31 @@
+{% extends 'mountains/base.html' %}
+
+{% block content %}
+	<div>
+		<h2>{{ mountain.name }}</h2><a href="{% url 'mountain_edit' pk=mountain.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+		
+		<div>
+			<img src="{{ mountain.display_image }}" />
+		<div>
+		<p>{{ mountain.description }}</p>
+		General info:
+		<ul>
+			<li>range: <a href="{% url 'mountain_range_detail' mountain.mountain_range.pk %}">{{ mountain.mountain_range }}</a></li>
+			<li>height: {{ mountain.height }} ft</li>
+			<li>location: <a target="_blank" href="http://maps.google.com/maps?&z=19&mrt=loc&t=k&q={{ mountain.latitude }}+{{ mountain.longitude }}">{{ mountain.latitude }}, {{ mountain.longitude }}</a></li>
+			<li>snow level: {{ mountain.snow_level }} ft</li>
+			<li>marmot sightings: {{ mountain.number_of_marmots_seen }}</li>
+		</ul>
+	</div>
+
+	<hr>
+	Snow? (add a text box?)
+
+	<hr>
+	<div>See a marmot? (add a button?)</div>
+	<hr>
+
+	<div>
+		<a href="/">back</a>
+	</div>
+{% endblock %}

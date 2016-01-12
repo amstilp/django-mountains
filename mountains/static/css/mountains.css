@@ -1,0 +1,131 @@
+/*
+set up some named colors
+*/
+
+body {
+	font-family: Verdana, sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color:;
+}
+
+#header {
+	background-color: #cccccc;
+	border 2px solid white;
+
+	text-align: center;
+	
+	padding: 5%;
+	width: 100%;
+	height: 5em;
+}
+
+#navbar li {
+	list-style-type: none;
+	margin: 0;
+	padding: 2em;
+	display: inline;
+}
+
+
+
+
+/* tables! */
+
+table {
+	border-collapse: collapse;
+}
+
+
+
+
+th, td {
+	padding: 1em;
+	border-bottom: 1px solid #cccccc;
+}
+
+tr:hover {
+	background-color: #e5f2ff;
+}
+
+table img {
+	height: 3em;
+}
+
+th {
+	background-color: #66b2ff;
+}
+/*
+tr:nth-child(even){
+	background-color: white;
+}
+
+tr:nth-child(odd){
+	background-color: #dddddd;
+}
+*/
+
+/* other stuff? */
+
+/*.mountain-img {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    background-repeat: no-repeat; 
+    background-position: center center;
+    background-size: cover;
+    display: inline-block;
+    margin: 2em;
+    padding: 1em;
+    opacity: 0.4;
+}
+*/
+.mountain-img:hover {
+    opacity: 1;
+    color: none;
+}
+
+.container {
+	width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    position: relative;
+    padding: 2em;
+    display: inline-block;
+}
+
+
+.mountain-text {
+	z-index: 1;
+	width: 50%;
+	height: 50%;
+	position: absolute;
+	top: 5em;
+	left: 5em;
+	text-align: center;
+	font-weight: bold;
+}
+
+.mountain-img {
+	z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 2em;
+    bottom: 2em;
+
+    border-radius: 50%;
+    background-repeat: no-repeat; 
+    background-position: center center;
+    background-size: cover;    
+
+    opacity: 0.4;
+}
+
+
+img {
+	height: 300px;
+}
+

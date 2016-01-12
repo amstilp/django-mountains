@@ -1,0 +1,10 @@
+{% extends 'mountains/base.html' %}
+
+{% block content %}
+	<h2>New mountain</h2>
+	<!-- needs to have enctype set to actually process the image -->
+	<form method="POST", class="mountain-form" enctype="multipart/form-data">{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit" class="save btn btn-default">Save</button>
+	</form>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'mountains/base.html' %}
+
+{% block content %}
+
+	{% for mountain in mountains %}
+<!-- 		<a href="{% url 'mountain_detail' pk=mountain.pk %}">
+        		<div class="mountain-text">{{ mountain.name }}</div>
+        	<div class="mountain-img" style="background-image:url({{ mountain.display_image }})">
+        	</div>
+        </a>
+ -->
+ 	<a href="{% url 'mountain_detail' pk=mountain.pk %}">
+ 	<div class="container">
+ 		<div class="mountain-img" style="background-image:url({{ mountain.display_image }})"></div>
+ 		<div class="mountain-text">{{ mountain.name }}</div>
+ 	</div>
+ 	</a>
+ 	{% endfor %}
+{% endblock %}
