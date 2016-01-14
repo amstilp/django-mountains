@@ -60,7 +60,7 @@ def mountain_results(request):
             
             return render(request, "mountains/mountain_advanced_search.html", {'mountains': mountains, 'query': query, 'form': form})
     else:
-        form = MountainSearchForm()
+        form = MountainCrispySearchForm()
 
     return render(request, 'mountains/mountain_advanced_search.html', {'form': form})
 
@@ -85,7 +85,7 @@ def mountain_advanced_search(request):
             
             return render(request, "mountains/mountain_results.html", {'mountains': mountains, 'query': query, 'form': form})
     else:
-        form = MountainSearchForm()
+        form = MountainCrispySearchForm()
 
     return render(request, 'mountains/mountain_advanced_search.html', {'form': form})
 
