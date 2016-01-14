@@ -40,7 +40,7 @@ class MountainCrispySearchForm(forms.Form):
 
     # allow selection of multiple mountain ranges in which to search
     mountain_range = forms.MultipleChoiceField(choices=MOUNTAIN_RANGES,
-        widget=forms.CheckboxSelectMultiple(), required=False)
+        widget=forms.CheckboxSelectMultiple(), required=False, label=None)
     
     helper = FormHelper()
     helper.form_class = 'form-horizontal'
@@ -50,7 +50,7 @@ class MountainCrispySearchForm(forms.Form):
     helper.layout = Layout(
         Field('text'),
         HTML("""
-            <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <a class="btn btn-default" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
   Search by mountain range:
     </a>
     <div class="collapse" id="collapseExample">
