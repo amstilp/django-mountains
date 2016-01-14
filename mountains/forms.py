@@ -42,9 +42,11 @@ class MountainCrispySearchForm(forms.Form):
     mountain_range = forms.MultipleChoiceField(choices=MOUNTAIN_RANGES,
         widget=forms.CheckboxSelectMultiple(), required=False)
     
-    # Uni-form
     helper = FormHelper()
     helper.form_class = 'form-horizontal'
+    helper.label_class = 'col-lg-2'
+    helper.field_class = 'col-lg-8'
+
     helper.layout = Layout(
         Field('text'),
         HTML("""
