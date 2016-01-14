@@ -15,5 +15,6 @@ urlpatterns = [
     url(r'^mountain/advanced_search/$', views.mountain_advanced_search, name="mountain_advanced_search"),
     url(r'^mountain/results/$', views.mountain_results, name="mountain_results"),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+    url(r'^mountain/see_marmot/$', views.see_marmot, name='see_marmot'),
 ]
 

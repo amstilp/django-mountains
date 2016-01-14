@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q # allows complex queries when searching
+from django.http import HttpResponse
 from . models import Mountain, MountainRange
 from . forms import MountainForm, MountainCrispySearchForm, MountainRangeForm
 
@@ -88,7 +89,22 @@ def mountain_advanced_search(request):
 
     return render(request, 'mountains/mountain_advanced_search.html', {'form': form})
 
+def see_marmot(request):
 
+    pk = None
+    if request.method == 'GET':
+        pk = request.GET['pk']
+
+    n_marmots = 0
+    if pk:
+        mountain = Mountain.objects.get(id=int(pk))
+        if mountain:
+            # can you call a class method here instead? probably
+            mountain.see_marmot()
+            n_marmots = mountain.number_of_marmots_seen
+            mountain.save()
+
+    return HttpResponse(n_marmots)
 
 def mountain_range_list(request):
     mountain_ranges = MountainRange.objects.all().order_by('name')
