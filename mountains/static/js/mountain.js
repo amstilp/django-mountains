@@ -1,6 +1,7 @@
 var main = function(){
 
     $('#btn-marmot').click(function() {
+        $(this).prop('disabled', true);
         console.log("button pressed");
         var pk;
         console.log("declared variable");
@@ -10,6 +11,7 @@ var main = function(){
             console.log(" in $.get");
             $("#n-marmots").text(data);
         });
+       $(this).prop('disabled', false);
     });
 };
 
