@@ -12,13 +12,18 @@
 		</div>
 		<div>
 		General info:
-		<ul>
-			<li>range: <a href="{% url 'mountain_range_detail' mountain.mountain_range.pk %}">{{ mountain.mountain_range }}</a></li>
-			<li>height: {{ mountain.height }} ft</li>
-			<li>location: <a target="_blank" href="http://maps.google.com/maps?&z=19&mrt=loc&t=k&q={{ mountain.latitude }}+{{ mountain.longitude }}">{{ mountain.latitude }}, {{ mountain.longitude }}</a></li>
-			<li>snow level: {{ mountain.snow_level }} ft</li>
-			<li>marmot sightings: <div id="n-marmots">{{ mountain.number_of_marmots_seen }}</div></li>
-		</ul>
+		<dl class="dl-horizontal">
+			<dt>range</dt>
+			<dd><a href="{% url 'mountain_range_detail' mountain.mountain_range.pk %}">{{ mountain.mountain_range }}</a></dd>
+			<dt>height</dt>
+			<dd>{{ mountain.height }} ft</dd>
+			<dt>location</dt>
+			<dd><a target="_blank" href="http://maps.google.com/maps?&z=19&mrt=loc&t=k&q={{ mountain.latitude }}+{{ mountain.longitude }}">{{ mountain.latitude }}, {{ mountain.longitude }}</a></dd>
+			<dt>snow level</dt>
+			<dd>{{ mountain.snow_level }} ft</dd>
+			<dt>marmot sightings:</dt>
+			<dd id="n-marmots">{{ mountain.number_of_marmots_seen }}</dd>
+		</dl>
 	</div>
 
 	<hr>
