@@ -40,31 +40,6 @@ def mountain_edit(request, pk):
     
     return render(request, "mountains/mountain_edit.html", {'form': form})
 
-def mountain_results(request):
-    # process form data
-    if request.method == "POST":
-        # create a form instance with data from the request
-        form = MountainCrispySearchForm(request.POST)
-        # check validity of form
-        if form.is_valid():
-            
-            # process data - should use .cleaned_data method after checking .is_valid
-            query = form.cleaned_data.get("text", None)
-            mountain_ranges = form.cleaned_data.get('mountain_range', [])
-
-            # search text
-            mountains = Mountain.objects.filter(Q(description__contains=query) | Q(name__contains=query))
-            # then mountain ranges
-            if (len(mountain_ranges) > 0):
-                mountains = mountains.filter(mountain_range__in=mountain_ranges)
-            
-            return render(request, "mountains/mountain_advanced_search.html", {'mountains': mountains, 'query': query, 'form': form})
-    else:
-        form = MountainCrispySearchForm()
-
-    return render(request, 'mountains/mountain_advanced_search.html', {'form': form})
-
-
 def mountain_advanced_search(request):
     # process form data
     if request.method == "POST":
@@ -83,11 +58,11 @@ def mountain_advanced_search(request):
             if (len(mountain_ranges) > 0):
                 mountains = mountains.filter(mountain_range__in=mountain_ranges)
             
-            return render(request, "mountains/mountain_results.html", {'mountains': mountains, 'query': query, 'form': form})
+            return render(request, "mountains/mountain_advanced_search.html", {'mountains': mountains, 'query': query, 'form': form, 'results': True})
     else:
         form = MountainCrispySearchForm()
 
-    return render(request, 'mountains/mountain_advanced_search.html', {'form': form})
+    return render(request, 'mountains/mountain_advanced_search.html', {'form': form, 'results': False})
 
 def see_marmot(request):
 
