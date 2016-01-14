@@ -47,3 +47,4 @@ class Mountain(models.Model):
             return self.image.url
         else:
             return settings.STATIC_URL + "images/mountain.jpg"
+
