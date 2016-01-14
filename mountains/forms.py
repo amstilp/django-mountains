@@ -47,7 +47,19 @@ class MountainCrispySearchForm(forms.Form):
     helper.form_class = 'form-horizontal'
     helper.layout = Layout(
         Field('text'),
-        Field('mountain_range', style="background: #FAFAFA; padding: 10px;"),
+        HTML("""
+            <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  Search by mountain range:
+    </a>
+    <div class="collapse" id="collapseExample">
+        <div class="well">
+        """),
+   
+        Field('mountain_range'),
+        HTML("""
+              </div>
+            </div>
+            """),
         FormActions(
             Submit('submit', 'Go!', css_class="btn-primary"),
             )
