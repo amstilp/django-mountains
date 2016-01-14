@@ -13,6 +13,10 @@ var main = function(){
         });
        $(this).prop('disabled', false);
     });
-};
+
+    $('form').submit(function() {
+        $(this).find("#submit-id-submit").prop('disabled',true);
+    });
+ }
 
 $(document).ready(main);
