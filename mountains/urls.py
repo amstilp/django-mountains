@@ -14,6 +14,6 @@ urlpatterns = [
     url(r'^mountain/$', views.mountain_list, name='mountain_list'),
     url(r'^mountain/advanced_search/$', views.mountain_advanced_search, name="mountain_advanced_search"),
     url(r'^mountain/results/$', views.mountain_results, name="mountain_results"),
-    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT})
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 ]
 
