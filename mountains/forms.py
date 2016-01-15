@@ -1,7 +1,7 @@
 from django import forms
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
+from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field, Reset
 from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions, InlineCheckboxes
 
 from . models import Mountain, MountainRange
@@ -43,6 +43,8 @@ class MountainCrispySearchForm(forms.Form):
     mountain_range = forms.MultipleChoiceField(choices=MOUNTAIN_RANGES,
         widget=forms.CheckboxSelectMultiple(), required=False, label=None)
     
+    reset = Reset('name', 'clear')
+
     helper = FormHelper()
     helper.form_class = 'form-horizontal'
     helper.label_class = 'col-lg-2'
@@ -65,6 +67,7 @@ class MountainCrispySearchForm(forms.Form):
             """),
         FormActions(
             Submit('submit', 'Search!', css_class="btn-primary"),
+            reset,
             )
         )
 
