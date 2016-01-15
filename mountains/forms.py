@@ -64,7 +64,8 @@ class MountainCrispySearchForm(forms.Form):
         HTML("""
               </div>
             </div>
-            """),
+            <hr>
+            """), # the <hr> adds some space between this button and the submit button
         FormActions(
             Submit('submit', 'Search!', css_class="btn-primary"),
             reset,
