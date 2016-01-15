@@ -2,7 +2,7 @@ from django import forms
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
-from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions
+from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions, InlineCheckboxes
 
 from . models import Mountain, MountainRange
 
@@ -25,7 +25,7 @@ class MountainSearchForm(forms.Form):
     
     # may need to move this into an __init__ method?
     # but it seems to be ok when I add a new mountain range.. maybe the server restarted?
-    MOUNTAIN_RANGES = [[x.pk, x.name] for x in MountainRange.objects.all()]
+    MOUNTAIN_RANGES = [[x.pk, x.name] for x in MountainRange.objects.all().order_by('name')]
 
     # allow selection of multiple mountain ranges in which to search
     mountain_range = forms.MultipleChoiceField(choices=MOUNTAIN_RANGES,
@@ -36,7 +36,8 @@ class MountainCrispySearchForm(forms.Form):
     
     # may need to move this into an __init__ method?
     # but it seems to be ok when I add a new mountain range.. maybe the server restarted?
-    MOUNTAIN_RANGES = [[x.pk, x.name] for x in MountainRange.objects.all()]
+    # could possible separate this into multiple phases?
+    MOUNTAIN_RANGES = [[x.pk, x.name] for x in MountainRange.objects.all().order_by('name')]
 
     # allow selection of multiple mountain ranges in which to search
     mountain_range = forms.MultipleChoiceField(choices=MOUNTAIN_RANGES,
@@ -51,18 +52,21 @@ class MountainCrispySearchForm(forms.Form):
         Field('text'),
         HTML("""
             <a class="btn btn-default" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-  Search by mountain range:
+  Select by mountain range:
     </a>
     <div class="collapse" id="collapseExample">
         <div class="well">
         """),
    
-        Field('mountain_range'),
+        InlineCheckboxes('mountain_range'),
         HTML("""
               </div>
             </div>
             """),
         FormActions(
-            Submit('submit', 'Go!', css_class="btn-primary"),
+            Submit('submit', 'Search!', css_class="btn-primary"),
             )
         )
+
+
+
