@@ -15,7 +15,7 @@ var main = function(){
     });
 
     $('form').submit(function() {
-        $(this).find("#submit-id-submit").prop('disabled',true);
+        $(this).find(".btn-disable").prop('disabled',true);
     });
  }
 

@@ -43,8 +43,6 @@ class MountainCrispySearchForm(forms.Form):
     mountain_range = forms.MultipleChoiceField(choices=MOUNTAIN_RANGES,
         widget=forms.CheckboxSelectMultiple(), required=False, label=None)
     
-    reset = Reset('name', 'clear')
-
     helper = FormHelper()
     helper.form_class = 'form-horizontal'
     helper.label_class = 'col-lg-2'
@@ -67,8 +65,8 @@ class MountainCrispySearchForm(forms.Form):
             <hr>
             """), # the <hr> adds some space between this button and the submit button
         FormActions(
-            Submit('submit', 'Search!', css_class="btn-primary"),
-            reset,
+            Submit('submit', 'Search!', css_class="btn-primary btn-disable"),
+            Reset('name', 'Reset!', css_class="btn-disable"),
             )
         )
 
